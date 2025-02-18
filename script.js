@@ -24,8 +24,4 @@ function toggleColor(button) {
 
 function resetBooks() {
     const books = document.querySelectorAll('.book');
-    books.forEach(book => {
-        book.style.backgroundColor = '#ddd';
-    });
-    clickCount = {};  // Reset the click count
-}
+    books.forEach

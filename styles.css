@@ -1,99 +1,84 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
-h1 {
-    font-size: 3em;
-    color: #333;
-    margin-bottom: 10px;
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
-.subtitle {
+.header .subtitle {
     font-size: 1.5em;
-    color: #555;
-    margin-bottom: 15px;
+    margin: 5px 0;
 }
 
-.instructions {
-    font-size: 1.2em;
-    color: #777;
-    margin-bottom: 25px;
+.header .instructions {
+    font-size: 1em;
+    margin: 15px 0;
 }
 
 .reset-btn {
-    padding: 12px 30px;
-    font-size: 1.3em;
-    background-color: #ff5733;
-    border: none;
+    background-color: #ff6347;
     color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .reset-btn:hover {
-    background-color: #c13e27;
+    background-color: #e55347;
 }
 
 .container {
-    display: flex;
-    gap: 40px;
-}
-
-.testament {
-    border: 2px solid #333;
-    padding: 20px;
-    width: 400px;
-    height: 600px;
-    overflow-y: scroll;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8em;
+.testament {
+    margin-bottom: 30px;
 }
 
 .books {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 250px;
 }
 
 .book {
-    background-color: #ddd;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px 35px;
+    padding: 10px;
+    font-size: 1.2em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 5px;
     text-align: center;
-    font-size: 1.1em;
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
 .book:hover {
-    background-color: #bbb;
+    background-color: #f0f0f0;
+}
+
+hr {
+    width: 100%;
+    border: 0.5px solid #ddd;
+    margin: 30px 0;
 }

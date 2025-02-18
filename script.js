@@ -1,31 +1,30 @@
-let clickCount = {};
+let clickCounts = {};
 
 function toggleColor(button) {
-    const book = button.textContent;
+    let book = button.textContent;
 
-    // Initialize click count for the book if not already set
-    if (!clickCount[book]) {
-        clickCount[book] = 0;
+    // Initialize the click count for the book if not already set
+    if (!clickCounts[book]) {
+        clickCounts[book] = 0;
     }
 
-    clickCount[book]++;
+    // Toggle the color based on the click count
+    clickCounts[book] = (clickCounts[book] + 1) % 3; // Cycle through 0, 1, 2 (None, Yellow, Green)
 
-    // Toggle between yellow and green
-    if (clickCount[book] === 1) {
-        button.style.backgroundColor = 'yellow'; // First click (yellow)
-    } else if (clickCount[book] === 2) {
-        button.style.backgroundColor = 'green'; // Second click (green)
+    if (clickCounts[book] === 1) {
+        button.style.backgroundColor = "yellow";  // Being Read
+    } else if (clickCounts[book] === 2) {
+        button.style.backgroundColor = "green";   // Completed
     } else {
-        // Reset back to default color after the second click
-        clickCount[book] = 0;
-        button.style.backgroundColor = '#ddd';
+        button.style.backgroundColor = "";        // Reset to original
     }
 }
 
 function resetBooks() {
+    // Reset all books to their original state
     const books = document.querySelectorAll('.book');
     books.forEach(book => {
-        book.style.backgroundColor = '#ddd'; // Reset color to default
+        book.style.backgroundColor = "";
     });
-    clickCount = {};  // Reset the click count for all books
+    clickCounts = {};  // Reset click counts
 }

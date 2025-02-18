@@ -1,59 +1,64 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const oldTestament = [
-        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
-        "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra",
-        "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon",
-        "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
-        "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah",
-        "Malachi"
-    ];
+const oldTestamentBooks = [
+    "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy",
+    "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings",
+    "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms",
+    "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations",
+    "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah",
+    "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"
+];
 
-    const newTestament = [
-        "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians",
-        "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
-        "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter",
-        "1 John", "2 John", "3 John", "Jude", "Revelation"
-    ];
+const newTestamentBooks = [
+    "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians",
+    "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians",
+    "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus",
+    "Philemon", "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John",
+    "3 John", "Jude", "Revelation"
+];
 
-    const oldBooksContainer = document.getElementById("old-books");
-    const newBooksContainer = document.getElementById("new-books");
+const oldTestamentDiv = document.getElementById("old-testament");
+const newTestamentDiv = document.getElementById("new-testament");
+const resetButton = document.getElementById("reset");
 
-    // Load saved progress
-    let savedProgress = JSON.parse(localStorage.getItem("bibleProgress")) || {};
+// Function to create book buttons
+function createBookButtons(books, container) {
+    books.forEach(book => {
+        const button = document.createElement("button");
+        button.textContent = book;
+        button.classList.add("book");
 
-    function createBookElement(book, container) {
-        let bookElement = document.createElement("button"); // Ensure it's a button
-        bookElement.textContent = book;
-        bookElement.classList.add("book");
-        bookElement.classList.add(savedProgress[book] || "not-started");
+        // Load saved state from localStorage
+        const savedState = localStorage.getItem(book);
+        if (savedState) {
+            button.classList.add(savedState);
+        }
 
-        bookElement.addEventListener("click", function () {
-            if (bookElement.classList.contains("not-started")) {
-                bookElement.classList.remove("not-started");
-                bookElement.classList.add("reading");
-                savedProgress[book] = "reading";
-            } else if (bookElement.classList.contains("reading")) {
-                bookElement.classList.remove("reading");
-                bookElement.classList.add("completed");
-                savedProgress[book] = "completed";
+        // Click event to toggle between statuses
+        button.addEventListener("click", () => {
+            if (!button.classList.contains("reading")) {
+                button.classList.add("reading");
+                localStorage.setItem(book, "reading");
+            } else if (button.classList.contains("reading")) {
+                button.classList.remove("reading");
+                button.classList.add("completed");
+                localStorage.setItem(book, "completed");
             } else {
-                bookElement.classList.remove("completed");
-                bookElement.classList.add("not-started");
-                delete savedProgress[book];
+                button.classList.remove("completed");
+                localStorage.removeItem(book);
             }
-            localStorage.setItem("bibleProgress", JSON.stringify(savedProgress));
         });
 
-        container.appendChild(bookElement);
-    }
+        container.appendChild(button);
+    });
+}
 
-    // Create Old & New Testament book elements
-    oldTestament.forEach(book => createBookElement(book, oldBooksContainer));
-    newTestament.forEach(book => createBookElement(book, newBooksContainer));
+// Generate book buttons for Old and New Testament
+createBookButtons(oldTestamentBooks, oldTestamentDiv);
+createBookButtons(newTestamentBooks, newTestamentDiv);
 
-    // Reset Progress
-    document.getElementById("reset-btn").addEventListener("click", function () {
-        localStorage.removeItem("bibleProgress");
-        location.reload();
+// Reset Button Functionality
+resetButton.addEventListener("click", () => {
+    document.querySelectorAll(".book").forEach(button => {
+        button.classList.remove("reading", "completed");
+        localStorage.removeItem(button.textContent);
     });
 });

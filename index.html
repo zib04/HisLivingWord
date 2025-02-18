@@ -8,95 +8,29 @@
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to His Living Word Bible Tracker</h1>
-    <p>Clicking on a book once will turn it yellow indicating it is in progress, twice will make it green symbolizing it is complete.</p>
-    <p>John 1:1 "In the beginning was the Word, and the Word was with God, and the Word was God".</p>
-    <div id="reset-container">
-      <button id="reset-button">Reset All</button>
-    </div>
+    <header>
+      <h1>Welcome to His Living Word Bible Tracker</h1>
+      <p>Track your Bible reading progress with ease. Click a book to track your reading progress!</p>
+    </header>
+
+    <button class="reset" onclick="resetColors()">Reset</button>
+    <button class="plan" onclick="window.location.href='plan.html'">Plan</button>
+
     <div class="old-testament">
       <h2>Old Testament</h2>
-      <div class="books">
-        <!-- Old Testament books -->
-        <button class="book-button">Genesis</button>
-        <button class="book-button">Exodus</button>
-        <button class="book-button">Leviticus</button>
-        <button class="book-button">Numbers</button>
-        <button class="book-button">Deuteronomy</button>
-        <button class="book-button">Joshua</button>
-        <button class="book-button">Judges</button>
-        <button class="book-button">Ruth</button>
-        <button class="book-button">1 Samuel</button>
-        <button class="book-button">2 Samuel</button>
-        <button class="book-button">1 Kings</button>
-        <button class="book-button">2 Kings</button>
-        <button class="book-button">1 Chronicles</button>
-        <button class="book-button">2 Chronicles</button>
-        <button class="book-button">Ezra</button>
-        <button class="book-button">Nehemiah</button>
-        <button class="book-button">Esther</button>
-        <button class="book-button">Job</button>
-        <button class="book-button">Psalms</button>
-        <button class="book-button">Proverbs</button>
-        <button class="book-button">Ecclesiastes</button>
-        <button class="book-button">Song of Solomon</button>
-        <button class="book-button">Isaiah</button>
-        <button class="book-button">Jeremiah</button>
-        <button class="book-button">Lamentations</button>
-        <button class="book-button">Ezekiel</button>
-        <button class="book-button">Daniel</button>
-        <button class="book-button">Hosea</button>
-        <button class="book-button">Joel</button>
-        <button class="book-button">Amos</button>
-        <button class="book-button">Obadiah</button>
-        <button class="book-button">Jonah</button>
-        <button class="book-button">Micah</button>
-        <button class="book-button">Nahum</button>
-        <button class="book-button">Habakkuk</button>
-        <button class="book-button">Zephaniah</button>
-        <button class="book-button">Haggai</button>
-        <button class="book-button">Zechariah</button>
-        <button class="book-button">Malachi</button>
+      <div class="books" id="old-books">
+        <!-- Books will be listed here -->
       </div>
     </div>
 
-    <br><br>
-
     <div class="new-testament">
       <h2>New Testament</h2>
-      <div class="books">
-        <!-- New Testament books -->
-        <button class="book-button">Matthew</button>
-        <button class="book-button">Mark</button>
-        <button class="book-button">Luke</button>
-        <button class="book-button">John</button>
-        <button class="book-button">Acts</button>
-        <button class="book-button">Romans</button>
-        <button class="book-button">1 Corinthians</button>
-        <button class="book-button">2 Corinthians</button>
-        <button class="book-button">Galatians</button>
-        <button class="book-button">Ephesians</button>
-        <button class="book-button">Philippians</button>
-        <button class="book-button">Colossians</button>
-        <button class="book-button">1 Thessalonians</button>
-        <button class="book-button">2 Thessalonians</button>
-        <button class="book-button">1 Timothy</button>
-        <button class="book-button">2 Timothy</button>
-        <button class="book-button">Titus</button>
-        <button class="book-button">Philemon</button>
-        <button class="book-button">Hebrews</button>
-        <button class="book-button">James</button>
-        <button class="book-button">1 Peter</button>
-        <button class="book-button">2 Peter</button>
-        <button class="book-button">1 John</button>
-        <button class="book-button">2 John</button>
-        <button class="book-button">3 John</button>
-        <button class="book-button">Jude</button>
-        <button class="book-button">Revelation</button>
+      <div class="books" id="new-books">
+        <!-- Books will be listed here -->
       </div>
     </div>
   </div>
 
-  <script src="scripts.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

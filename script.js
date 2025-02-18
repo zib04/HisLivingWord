@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let savedProgress = JSON.parse(localStorage.getItem("bibleProgress")) || {};
 
     function createBookElement(book, container) {
-        let bookElement = document.createElement("div");
+        let bookElement = document.createElement("button"); // Ensure it's a button
         bookElement.textContent = book;
         bookElement.classList.add("book");
         bookElement.classList.add(savedProgress[book] || "not-started");

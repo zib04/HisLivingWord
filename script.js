@@ -1,41 +1,25 @@
-const oldTestamentBooks = ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"];
-const newTestamentBooks = ["Matthew", "Mark", "Luke", "John", "Acts"];
-const verses = ["Psalm 119:105 - Your word is a lamp to my feet.", "Proverbs 3:5 - Trust in the Lord with all your heart."];
+document.addEventListener("DOMContentLoaded", function () {
+    const books = [
+        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
+        "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra",
+        "Nehemiah", "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon",
+        "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+        "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah",
+        "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians",
+        "2 Corinthians", "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians",
+        "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James",
+        "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"
+    ];
 
-function createBookGrid(books, containerId) {
-    const container = document.getElementById(containerId);
+    const bookList = document.getElementById("books-list");
+
+    // Load saved progress from localStorage
+    let savedProgress = JSON.parse(localStorage.getItem("bibleProgress")) || {};
+
     books.forEach(book => {
-        const div = document.createElement("div");
-        div.className = "book";
-        div.textContent = book;
-        div.addEventListener("click", () => toggleBookState(div));
-        container.appendChild(div);
-    });
-}
+        let bookElement = document.createElement("div");
+        bookElement.textContent = book;
+        bookElement.classList.add("book");
+        bookElement.classList.add(savedProgress[book] || "not-started");
 
-function toggleBookState(book) {
-    if (book.classList.contains("completed")) {
-        book.classList.remove("completed");
-        book.classList.add("reading");
-    } else if (book.classList.contains("reading")) {
-        book.classList.remove("reading");
-    } else {
-        book.classList.add("completed");
-    }
-}
-
-document.getElementById("reset").addEventListener("click", () => {
-    document.querySelectorAll(".book").forEach(book => book.classList.remove("reading", "completed"));
-});
-
-document.getElementById("verse").textContent = verses[Math.floor(Math.random() * verses.length)];
-
-const readingPlan = ["Day 1: Genesis 1-3", "Day 2: Matthew 1-2"];
-readingPlan.forEach(day => {
-    const li = document.createElement("li");
-    li.textContent = day;
-    document.getElementById("reading-plan").appendChild(li);
-});
-
-createBookGrid(oldTestamentBooks, "old-testament");
-createBookGrid(newTestamentBooks, "new-testament");
+        bookElement.addEventListener("

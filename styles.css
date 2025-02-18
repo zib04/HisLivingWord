@@ -7,7 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px; /* Added padding on left and right */
+    padding: 0 20px;
     text-align: center;
 }
 
@@ -60,9 +60,9 @@ body {
 
 .books {
     display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap onto new lines */
-    justify-content: center; /* Center align buttons horizontally */
-    gap: 15px; /* Space between buttons */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
     width: 100%;
 }
 
@@ -76,7 +76,7 @@ body {
     min-width: 100px;
     max-width: 120px;
     text-align: center;
-    border-radius: 5px; /* Rounded edges for buttons */
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
@@ -84,7 +84,6 @@ body {
     background-color: #e0e0e0;
 }
 
-/* Make buttons smaller on smaller screens */
 @media (max-width: 768px) {
     .book {
         min-width: 90px;

@@ -10,57 +10,16 @@
 <body>
     <div class="header">
         <h1>Welcome to His Living Word</h1>
-        <p class="subtitle">A Book Tracking Website</p>
-        <p class="instructions">
-            Click once to mark the book as "Being Read" (Yellow), and click twice to mark it as "Completed" (Green).
-        </p>
+        <p>A Book Tracking Website</p>
+        <p class="instructions">Click once to mark the book as "Being Read" (Yellow), and click twice to mark it as "Completed" (Green).</p>
         <button class="reset-btn" onclick="resetBooks()">Reset All</button>
     </div>
 
     <div class="container">
         <div class="testament">
             <h2>Old Testament</h2>
-            <div class="books">
-                <!-- Old Testament Books -->
-                <button class="book" onclick="toggleColor(this)">Genesis</button>
-                <button class="book" onclick="toggleColor(this)">Exodus</button>
-                <button class="book" onclick="toggleColor(this)">Leviticus</button>
-                <button class="book" onclick="toggleColor(this)">Numbers</button>
-                <button class="book" onclick="toggleColor(this)">Deuteronomy</button>
-                <button class="book" onclick="toggleColor(this)">Joshua</button>
-                <button class="book" onclick="toggleColor(this)">Judges</button>
-                <button class="book" onclick="toggleColor(this)">Ruth</button>
-                <button class="book" onclick="toggleColor(this)">1 Samuel</button>
-                <button class="book" onclick="toggleColor(this)">2 Samuel</button>
-                <button class="book" onclick="toggleColor(this)">1 Kings</button>
-                <button class="book" onclick="toggleColor(this)">2 Kings</button>
-                <button class="book" onclick="toggleColor(this)">1 Chronicles</button>
-                <button class="book" onclick="toggleColor(this)">2 Chronicles</button>
-                <button class="book" onclick="toggleColor(this)">Ezra</button>
-                <button class="book" onclick="toggleColor(this)">Nehemiah</button>
-                <button class="book" onclick="toggleColor(this)">Esther</button>
-                <button class="book" onclick="toggleColor(this)">Job</button>
-                <button class="book" onclick="toggleColor(this)">Psalms</button>
-                <button class="book" onclick="toggleColor(this)">Proverbs</button>
-                <button class="book" onclick="toggleColor(this)">Ecclesiastes</button>
-                <button class="book" onclick="toggleColor(this)">Song of Solomon</button>
-                <button class="book" onclick="toggleColor(this)">Isaiah</button>
-                <button class="book" onclick="toggleColor(this)">Jeremiah</button>
-                <button class="book" onclick="toggleColor(this)">Lamentations</button>
-                <button class="book" onclick="toggleColor(this)">Ezekiel</button>
-                <button class="book" onclick="toggleColor(this)">Daniel</button>
-                <button class="book" onclick="toggleColor(this)">Hosea</button>
-                <button class="book" onclick="toggleColor(this)">Joel</button>
-                <button class="book" onclick="toggleColor(this)">Amos</button>
-                <button class="book" onclick="toggleColor(this)">Obadiah</button>
-                <button class="book" onclick="toggleColor(this)">Jonah</button>
-                <button class="book" onclick="toggleColor(this)">Micah</button>
-                <button class="book" onclick="toggleColor(this)">Nahum</button>
-                <button class="book" onclick="toggleColor(this)">Habakkuk</button>
-                <button class="book" onclick="toggleColor(this)">Zephaniah</button>
-                <button class="book" onclick="toggleColor(this)">Haggai</button>
-                <button class="book" onclick="toggleColor(this)">Zechariah</button>
-                <button class="book" onclick="toggleColor(this)">Malachi</button>
+            <div class="books" id="old-testament">
+                <!-- Old Testament Books Listed Here -->
             </div>
         </div>
 
@@ -68,35 +27,8 @@
 
         <div class="testament">
             <h2>New Testament</h2>
-            <div class="books">
-                <!-- New Testament Books -->
-                <button class="book" onclick="toggleColor(this)">Matthew</button>
-                <button class="book" onclick="toggleColor(this)">Mark</button>
-                <button class="book" onclick="toggleColor(this)">Luke</button>
-                <button class="book" onclick="toggleColor(this)">John</button>
-                <button class="book" onclick="toggleColor(this)">Acts</button>
-                <button class="book" onclick="toggleColor(this)">Romans</button>
-                <button class="book" onclick="toggleColor(this)">1 Corinthians</button>
-                <button class="book" onclick="toggleColor(this)">2 Corinthians</button>
-                <button class="book" onclick="toggleColor(this)">Galatians</button>
-                <button class="book" onclick="toggleColor(this)">Ephesians</button>
-                <button class="book" onclick="toggleColor(this)">Philippians</button>
-                <button class="book" onclick="toggleColor(this)">Colossians</button>
-                <button class="book" onclick="toggleColor(this)">1 Thessalonians</button>
-                <button class="book" onclick="toggleColor(this)">2 Thessalonians</button>
-                <button class="book" onclick="toggleColor(this)">1 Timothy</button>
-                <button class="book" onclick="toggleColor(this)">2 Timothy</button>
-                <button class="book" onclick="toggleColor(this)">Titus</button>
-                <button class="book" onclick="toggleColor(this)">Philemon</button>
-                <button class="book" onclick="toggleColor(this)">Hebrews</button>
-                <button class="book" onclick="toggleColor(this)">James</button>
-                <button class="book" onclick="toggleColor(this)">1 Peter</button>
-                <button class="book" onclick="toggleColor(this)">2 Peter</button>
-                <button class="book" onclick="toggleColor(this)">1 John</button>
-                <button class="book" onclick="toggleColor(this)">2 John</button>
-                <button class="book" onclick="toggleColor(this)">3 John</button>
-                <button class="book" onclick="toggleColor(this)">Jude</button>
-                <button class="book" onclick="toggleColor(this)">Revelation</button>
+            <div class="books" id="new-testament">
+                <!-- New Testament Books Listed Here -->
             </div>
         </div>
     </div>

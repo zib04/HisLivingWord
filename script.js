@@ -1,30 +1,69 @@
-let clickCounts = {};
+// List of Old and New Testament Books
+const oldTestamentBooks = [
+    "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", "1 Samuel", "2 Samuel",
+    "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
+    "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos",
+    "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"
+];
 
-function toggleColor(button) {
-    let book = button.textContent;
+const newTestamentBooks = [
+    "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians", "Ephesians",
+    "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians", "1 Timothy", "2 Timothy", "Titus", "Philemon",
+    "Hebrews", "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"
+];
 
-    // Initialize the click count for the book if not already set
-    if (!clickCounts[book]) {
-        clickCounts[book] = 0;
-    }
+// Initialize the HTML content
+function createBookList() {
+    const oldTestamentDiv = document.getElementById('old-testament');
+    const newTestamentDiv = document.getElementById('new-testament');
 
-    // Toggle the color based on the click count
-    clickCounts[book] = (clickCounts[book] + 1) % 3; // Cycle through 0, 1, 2 (None, Yellow, Green)
-
-    if (clickCounts[book] === 1) {
-        button.style.backgroundColor = "yellow";  // Being Read
-    } else if (clickCounts[book] === 2) {
-        button.style.backgroundColor = "green";   // Completed
-    } else {
-        button.style.backgroundColor = "";        // Reset to original
-    }
-}
-
-function resetBooks() {
-    // Reset all books to their original state
-    const books = document.querySelectorAll('.book');
-    books.forEach(book => {
-        book.style.backgroundColor = "";
+    // Create Old Testament Buttons
+    oldTestamentBooks.forEach(book => {
+        const button = document.createElement('button');
+        button.classList.add('book');
+        button.textContent = book;
+        button.onclick = () => toggleColor(button);
+        oldTestamentDiv.appendChild(button);
     });
-    clickCounts = {};  // Reset click counts
+
+    // Create New Testament Buttons
+    newTestamentBooks.forEach(book => {
+        const button = document.createElement('button');
+        button.classList.add('book');
+        button.textContent = book;
+        button.onclick = () => toggleColor(button);
+        newTestamentDiv.appendChild(button);
+    });
 }
+
+// Toggle Book Color on Click
+let clickCounts = {};
+function toggleColor(button) {
+    const bookName = button.textContent;
+
+    // Initialize click count for each book if not already done
+    if (!clickCounts[bookName]) {
+        clickCounts[bookName] = 0;
+    }
+
+    // Cycle through click states: 0 -> None, 1 -> Yellow, 2 -> Green
+    clickCounts[bookName] = (clickCounts[bookName] + 1) % 3;
+
+    if (clickCounts[bookName] === 0) {
+        button.style.backgroundColor = "";
+    } else if (clickCounts[bookName] === 1) {
+        button.style.backgroundColor = "yellow";  // Being Read
+    } else {
+        button.style.backgroundColor = "green";   // Completed
+    }
+}
+
+// Reset All Books
+function resetBooks() {
+    const buttons = document.querySelectorAll('.book');
+    buttons.forEach(button => button.style.backgroundColor = "");
+    clickCounts = {};  // Reset all book states
+}
+
+// Call the function to create book lists when the page loads
+createBookList();

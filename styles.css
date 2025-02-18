@@ -59,10 +59,10 @@ body {
 }
 
 .books {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjust buttons in columns */
-    gap: 10px; /* Space between buttons */
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap onto new lines */
+    justify-content: center; /* Center align buttons horizontally */
+    gap: 15px; /* Space between buttons */
     width: 100%;
 }
 
@@ -73,18 +73,18 @@ body {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-align: center;
-    border-radius: 5px; /* Rounded edges for buttons */
     min-width: 100px;
     max-width: 120px;
-    box-sizing: border-box; /* Prevents button from overflowing */
+    text-align: center;
+    border-radius: 5px; /* Rounded edges for buttons */
+    box-sizing: border-box;
 }
 
 .book:hover {
     background-color: #e0e0e0;
 }
 
-/* Adjust button size for smaller screens */
+/* Make buttons smaller on smaller screens */
 @media (max-width: 768px) {
     .book {
         min-width: 90px;

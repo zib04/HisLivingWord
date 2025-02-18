@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>His Living Word - Bible Tracker</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Welcome to His Living Word</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div class="header">
         <h1>Welcome to His Living Word</h1>
         <p>A Book Tracking Website</p>
-        <p class="instructions">Click once to mark the book as "Being Read" (Yellow), and click twice to mark it as "Completed" (Green).</p>
-        <button class="reset-btn" onclick="resetBooks()">Reset All</button>
+        <p class="instructions">Click once to mark a book as "reading" (yellow), and twice to mark it as "completed" (green).</p>
     </div>
+
+    <button class="reset-btn" onclick="resetBooks()">Reset All</button>
 
     <div class="container">
         <div class="testament">
             <h2>Old Testament</h2>
-            <div class="books" id="old-testament">
-                <!-- Old Testament Books Listed Here -->
-            </div>
         </div>
-
-        <hr>
+        <div class="books old-testament">
+            <!-- Old Testament books listed here -->
+        </div>
 
         <div class="testament">
             <h2>New Testament</h2>
-            <div class="books" id="new-testament">
-                <!-- New Testament Books Listed Here -->
-            </div>
+        </div>
+        <div class="books new-testament">
+            <!-- New Testament books listed here -->
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

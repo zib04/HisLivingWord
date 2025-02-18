@@ -18,6 +18,9 @@ function handleClick(event) {
         book.style.backgroundColor = 'yellow'; // First click turns yellow (reading)
     } else if (clickCounts[bookName] === 2) {
         book.style.backgroundColor = 'green'; // Second click turns green (completed)
+    } else if (clickCounts[bookName] === 3) {
+        book.style.backgroundColor = '#f1f1f1'; // Third click resets to default
+        clickCounts[bookName] = 0; // Reset click count after third click
     }
 }
 

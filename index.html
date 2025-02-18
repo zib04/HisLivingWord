@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>His Living Word - Bible Tracker</h1>
-        <p>Click a book once to mark it as being read (yellow), and twice to mark it as completed (green).</p>
+        <p>Click a book once to mark it as read (yellow), twice to mark it as completed (green), and three times to reset it to default.</p>
+    </header>
 
-        <div class="books">
-            <!-- Old Testament Books -->
-            <div class="testament">
-                <h2>Old Testament</h2>
+    <div class="container">
+        <!-- Old Testament Books -->
+        <div class="testament">
+            <h2>Old Testament</h2>
+            <div class="books">
+                <!-- Old Testament Books -->
                 <button class="book">Genesis</button>
                 <button class="book">Exodus</button>
                 <button class="book">Leviticus</button>
@@ -55,10 +58,13 @@
                 <button class="book">Zechariah</button>
                 <button class="book">Malachi</button>
             </div>
+        </div>
 
-            <!-- New Testament Books -->
-            <div class="testament">
-                <h2>New Testament</h2>
+        <!-- New Testament Books -->
+        <div class="testament">
+            <h2>New Testament</h2>
+            <div class="books">
+                <!-- New Testament Books -->
                 <button class="book">Matthew</button>
                 <button class="book">Mark</button>
                 <button class="book">Luke</button>
@@ -88,8 +94,9 @@
                 <button class="book">Revelation</button>
             </div>
         </div>
-        <button id="reset">Reset All</button>
     </div>
+
+    <button id="reset">Reset All</button>
 
     <script src="scripts.js"></script>
 </body>

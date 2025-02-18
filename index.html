@@ -8,19 +8,21 @@
 </head>
 <body>
     <header>
-        <h1>His Living Word - Bible Tracker</h1>
-        <p>Click on a book to mark its status.</p>
+        <h1>📖 His Living Word</h1>
+        <p>Click once to mark as <span class="reading">Reading</span>, twice to mark as <span class="completed">Completed</span>.</p>
     </header>
 
-    <section id="verse-container">
-        <h2>📜 Verse of the Day</h2>
-        <p id="verse">Loading...</p>
-    </section>
+    <main>
+        <section id="old-testament">
+            <h2>📜 Old Testament</h2>
+            <div class="books-list" id="old-books"></div>
+        </section>
 
-    <section id="bible-books">
-        <h2>📚 Books of the Bible</h2>
-        <div id="books-list"></div>
-    </section>
+        <section id="new-testament">
+            <h2>✝️ New Testament</h2>
+            <div class="books-list" id="new-books"></div>
+        </section>
+    </main>
 
     <button id="reset-btn">Reset Progress</button>
 

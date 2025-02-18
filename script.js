@@ -1,4 +1,5 @@
-let clickCounts = {}; // Store the click count for each book
+// Store click counts for each book
+let clickCounts = {};
 
 // Function to handle book button clicks
 function handleClick(event) {
@@ -23,4 +24,12 @@ function handleClick(event) {
 // Add event listeners to all book buttons
 document.querySelectorAll('.book').forEach(book => {
     book.addEventListener('click', handleClick);
+});
+
+// Reset all buttons to original state
+document.getElementById('reset').addEventListener('click', function() {
+    clickCounts = {};  // Reset click counts
+    document.querySelectorAll('.book').forEach(book => {
+        book.style.backgroundColor = '#f1f1f1';  // Reset background color
+    });
 });

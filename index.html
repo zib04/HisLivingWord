@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Tracker</title>
+    <title>His Living Word - Bible Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Bible Tracker</h1>
+    <header>
+        <h1>His Living Word - Bible Tracker</h1>
+        <p>Click on a book to mark its status.</p>
+    </header>
 
-        <h2>Old Testament</h2>
-        <div id="old-testament" class="book-grid"></div>
+    <section id="verse-container">
+        <h2>📜 Verse of the Day</h2>
+        <p id="verse">Loading...</p>
+    </section>
 
-        <h2>New Testament</h2>
-        <div id="new-testament" class="book-grid"></div>
+    <section id="bible-books">
+        <h2>📚 Books of the Bible</h2>
+        <div id="books-list"></div>
+    </section>
 
-        <button id="reset">Reset Progress</button>
-
-        <h2>Verse of the Day</h2>
-        <p id="verse"></p>
-
-        <h2>Reading Plan</h2>
-        <ul id="reading-plan"></ul>
-    </div>
+    <button id="reset-btn">Reset Progress</button>
 
     <script src="script.js"></script>
 </body>

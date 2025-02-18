@@ -1,69 +1,33 @@
-/* General styling */
+/* Basic styling */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
-    text-align: center;
+    padding: 20px;
+    margin: 0;
 }
 
-/* Header */
-.header {
-    margin-bottom: 30px;
-}
-
-.header h1 {
+h1 {
     font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
-.header p {
+p {
     font-size: 1.2em;
-}
-
-.instructions {
-    font-size: 1em;
-    margin: 15px 0;
-}
-
-.reset-btn {
-    background-color: #ff6347;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.reset-btn:hover {
-    background-color: #e55347;
+    margin-bottom: 20px;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
-    margin-top: 20px;
-}
-
-.testament {
-    margin-bottom: 30px;
-    width: 100%;
-    text-align: center;
+    max-width: 900px;
 }
 
 .books {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
 }
 
 .book {
@@ -72,26 +36,11 @@ body {
     background-color: #f1f1f1;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-width: 100px;
-    max-width: 120px;
     text-align: center;
     border-radius: 5px;
-    box-sizing: border-box;
+    transition: background-color 0.3s ease;
 }
 
 .book:hover {
     background-color: #e0e0e0;
-}
-
-@media (max-width: 768px) {
-    .book {
-        min-width: 90px;
-    }
-}
-
-@media (max-width: 480px) {
-    .book {
-        min-width: 80px;
-    }
 }

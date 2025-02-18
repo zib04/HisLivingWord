@@ -20,15 +20,6 @@ function handleClick(event) {
     }
 }
 
-// Function to reset all books to original state
-function resetBooks() {
-    const books = document.querySelectorAll('.book');
-    books.forEach(book => {
-        book.style.backgroundColor = '#f1f1f1'; // Reset color to default
-    });
-    clickCounts = {}; // Reset click counts
-}
-
 // Add event listeners to all book buttons
 document.querySelectorAll('.book').forEach(book => {
     book.addEventListener('click', handleClick);

@@ -1,38 +1,39 @@
-// Store click counts for each book
-let clickCounts = {};
+// Get all the buttons
+const buttons = document.querySelectorAll('.book-button');
 
-// Function to handle book button clicks
+// Function to handle the click event
 function handleClick(event) {
-    const book = event.target;
-    const bookName = book.textContent;
+  const button = event.target;
+  const currentClickCount = button.dataset.clickCount ? parseInt(button.dataset.clickCount) : 0;
+  let newClickCount = currentClickCount + 1;
 
-    // Track click count for each book
-    if (!clickCounts[bookName]) {
-        clickCounts[bookName] = 0;
-    }
+  // Change color based on the number of clicks
+  if (newClickCount === 1) {
+    button.style.backgroundColor = 'yellow';
+  } else if (newClickCount === 2) {
+    button.style.backgroundColor = 'green';
+  } else {
+    button.style.backgroundColor = '';
+    newClickCount = 0;
+  }
 
-    clickCounts[bookName]++;
-
-    // Change color based on click count
-    if (clickCounts[bookName] === 1) {
-        book.style.backgroundColor = 'yellow'; // First click turns yellow (reading)
-    } else if (clickCounts[bookName] === 2) {
-        book.style.backgroundColor = 'green'; // Second click turns green (completed)
-    } else if (clickCounts[bookName] === 3) {
-        book.style.backgroundColor = '#f1f1f1'; // Third click resets to default
-        clickCounts[bookName] = 0; // Reset click count after third click
-    }
+  // Update click count in the button's data attribute
+  button.dataset.clickCount = newClickCount;
 }
 
-// Add event listeners to all book buttons
-document.querySelectorAll('.book').forEach(book => {
-    book.addEventListener('click', handleClick);
+// Add event listeners to all buttons
+buttons.forEach(button => {
+  button.addEventListener('click', handleClick);
 });
 
-// Reset all buttons to original state
-document.getElementById('reset').addEventListener('click', function() {
-    clickCounts = {};  // Reset click counts
-    document.querySelectorAll('.book').forEach(book => {
-        book.style.backgroundColor = '#f1f1f1';  // Reset background color
-    });
-});
+// Reset function to reset all button colors
+function resetButtons() {
+  buttons.forEach(button => {
+    button.style.backgroundColor = '';
+    button.dataset.clickCount = 0;  // Reset click count
+  });
+}
+
+// Add event listener for the reset button
+const resetButton = document.querySelector('#reset-button');
+resetButton.addEventListener('click', resetButtons);

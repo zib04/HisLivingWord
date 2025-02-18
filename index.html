@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>His Living Word - Bible Tracker</title>
+    <title>Bible Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>His Living Word - Bible Tracker</h1>
+    <div class="container">
+        <div class="testament" id="old-testament">
+            <h2>Old Testament</h2>
+            <div class="books">
+                <!-- Old Testament Books -->
+                <button class="book" onclick="toggleColor(this)">Genesis</button>
+                <button class="book" onclick="toggleColor(this)">Exodus</button>
+                <button class="book" onclick="toggleColor(this)">Leviticus</button>
+                <!-- Add all other Old Testament books here -->
+            </div>
+        </div>
 
-    <h2>Old Testament</h2>
-    <div class="bible-section" id="old-testament"></div>
-
-    <h2>New Testament</h2>
-    <div class="bible-section" id="new-testament"></div>
-
-    <button id="reset">Reset Progress</button>
+        <div class="testament" id="new-testament">
+            <h2>New Testament</h2>
+            <div class="books">
+                <!-- New Testament Books -->
+                <button class="book" onclick="toggleColor(this)">Matthew</button>
+                <button class="book" onclick="toggleColor(this)">Mark</button>
+                <button class="book" onclick="toggleColor(this)">Luke</button>
+                <!-- Add all other New Testament books here -->
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

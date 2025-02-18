@@ -1,40 +1,53 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f5f5f5;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.bible-section {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.testament {
+    border: 2px solid #333;
+    padding: 20px;
+    width: 300px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.books {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
 .book {
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: #e0e0e0;
+    background-color: #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.book.reading {
-    background-color: yellow;
-}
-
-.book.completed {
-    background-color: lightgreen;
-}
-
-#reset {
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: red;
-    color: white;
-    border: none;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.book:hover {
+    background-color: #bbb;
 }

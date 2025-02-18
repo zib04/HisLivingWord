@@ -1,65 +1,39 @@
-// List of Books of the Bible (Old and New Testaments)
-const oldTestamentBooks = [
-  "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth",
-  "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles", "2 Chronicles", "Ezra", "Nehemiah",
-  "Esther", "Job", "Psalms", "Proverbs", "Ecclesiastes", "Song of Solomon", "Isaiah", "Jeremiah",
-  "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum",
-  "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi"
-];
+// Get all the buttons
+const buttons = document.querySelectorAll('.book-button');
 
-const newTestamentBooks = [
-  "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians",
-  "Galatians", "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
-  "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter", "2 Peter",
-  "1 John", "2 John", "3 John", "Jude", "Revelation"
-];
+// Function to handle the click event
+function handleClick(event) {
+  const button = event.target;
+  const currentClickCount = button.dataset.clickCount ? parseInt(button.dataset.clickCount) : 0;
+  let newClickCount = currentClickCount + 1;
 
-// Function to create buttons dynamically
-function createButtons() {
-  const oldBooksContainer = document.getElementById("old-books");
-  const newBooksContainer = document.getElementById("new-books");
-
-  // Create Old Testament buttons
-  oldTestamentBooks.forEach(book => {
-    const button = document.createElement("button");
-    button.textContent = book;
-    button.classList.add("default");
-    button.onclick = () => toggleColor(button);
-    oldBooksContainer.appendChild(button);
-  });
-
-  // Create New Testament buttons
-  newTestamentBooks.forEach(book => {
-    const button = document.createElement("button");
-    button.textContent = book;
-    button.classList.add("default");
-    button.onclick = () => toggleColor(button);
-    newBooksContainer.appendChild(button);
-  });
-}
-
-// Function to toggle button colors
-function toggleColor(button) {
-  if (button.classList.contains("default")) {
-    button.classList.remove("default");
-    button.classList.add("yellow");
-  } else if (button.classList.contains("yellow")) {
-    button.classList.remove("yellow");
-    button.classList.add("green");
+  // Change color based on the number of clicks
+  if (newClickCount === 1) {
+    button.style.backgroundColor = 'yellow';
+  } else if (newClickCount === 2) {
+    button.style.backgroundColor = 'green';
   } else {
-    button.classList.remove("green");
-    button.classList.add("default");
+    button.style.backgroundColor = '';
+    newClickCount = 0;
   }
+
+  // Update click count in the button's data attribute
+  button.dataset.clickCount = newClickCount;
 }
 
-// Function to reset all button colors
-function resetColors() {
-  const allButtons = document.querySelectorAll("button");
-  allButtons.forEach(button => {
-    button.classList.remove("yellow", "green");
-    button.classList.add("default");
+// Add event listeners to all buttons
+buttons.forEach(button => {
+  button.addEventListener('click', handleClick);
+});
+
+// Reset function to reset all button colors
+function resetButtons() {
+  buttons.forEach(button => {
+    button.style.backgroundColor = '';
+    button.dataset.clickCount = 0;  // Reset click count
   });
 }
 
-// Initialize the buttons on page load
-createButtons();
+// Add event listener for the reset button
+const resetButton = document.querySelector('#reset-button');
+resetButton.addEventListener('click', resetButtons);

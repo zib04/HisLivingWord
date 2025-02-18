@@ -55,13 +55,15 @@ body {
 .testament {
     margin-bottom: 30px;
     width: 100%;
+    text-align: center;
 }
 
 .books {
-    display: flex;
-    flex-wrap: wrap; /* Allow the buttons to wrap onto new lines */
-    justify-content: center; /* Center align buttons horizontally */
-    gap: 10px; /* Spacing between buttons */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjust buttons in columns */
+    gap: 10px; /* Space between buttons */
+    justify-content: center;
+    width: 100%;
 }
 
 .book {
@@ -71,25 +73,26 @@ body {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    min-width: 80px; /* Minimum width of each button */
     text-align: center;
+    border-radius: 5px; /* Rounded edges for buttons */
+    min-width: 100px;
+    max-width: 120px;
+    box-sizing: border-box; /* Prevents button from overflowing */
 }
 
 .book:hover {
     background-color: #e0e0e0;
 }
 
-/* Responsive Layout: As the screen shrinks, buttons will reflow into new rows */
+/* Adjust button size for smaller screens */
 @media (max-width: 768px) {
     .book {
-        min-width: 70px; /* Smaller buttons for smaller screens */
-        font-size: 0.9em;
+        min-width: 90px;
     }
 }
 
 @media (max-width: 480px) {
     .book {
-        min-width: 60px; /* Even smaller buttons for very small screens */
-        font-size: 0.8em;
+        min-width: 80px;
     }
 }

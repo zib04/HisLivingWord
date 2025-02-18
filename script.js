@@ -17,7 +17,4 @@ function toggleColor(button) {
         button.style.backgroundColor = 'green';
     } else {
         // Reset back to default color
-        clickCount[book] = 0;
-        button.style.backgroundColor = '#ddd';
-    }
-}
+        clickCount
